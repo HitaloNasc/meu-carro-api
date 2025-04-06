@@ -16,7 +16,7 @@ export class LoginService {
   ) {}
 
   public async login({ email, password }: LoginDto): Promise<LoginResponseDto> {
-    logger.log('auth - services - login - login');
+    logger.info('auth - services - login - login');
 
     this.validateLoginEntries({ email, password });
     const user = await this.getUserOrThrow(email);
@@ -47,7 +47,6 @@ export class LoginService {
       name: userDto.name,
       photo: userDto.photo,
       role: userDto.role,
-      institutionId: userDto.institutionId,
       createdAt: userDto.createdAt,
     };
 

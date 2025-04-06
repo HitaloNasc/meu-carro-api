@@ -17,7 +17,7 @@ export class UserRepository {
     provider?: UserProviderEnum,
     userProviderId?: string,
   ): Promise<UserEntity> {
-    logger.log('repository - user - create');
+    logger.info('repository - user - create');
 
     const newUser = new this.model({
       name,
@@ -34,27 +34,27 @@ export class UserRepository {
   }
 
   public async update(user: UserEntity) {
-    logger.log('repository - user - update');
+    logger.info('repository - user - update');
     return await user.save();
   }
 
   public async findAll(): Promise<UserEntity[]> {
-    logger.log('repository - user - findAll');
+    logger.info('repository - user - findAll');
     return await this.model.find().exec();
   }
 
   public async findByEmail(email: string): Promise<UserEntity | null> {
-    logger.log('repository - user - findByEmail');
+    logger.info('repository - user - findByEmail');
     return await this.model.findOne({ email }).exec();
   }
 
   public async findById(id: string): Promise<UserEntity | null> {
-    logger.log('repository - user - findById');
+    logger.info('repository - user - findById');
     return await this.model.findById(id).exec();
   }
 
   public async deleteById(id: string): Promise<void> {
-    logger.log('repository - user - deleteById');
+    logger.info('repository - user - deleteById');
     await this.model.findOneAndDelete({ _id: id });
   }
 }

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-CONTAINER_NAME="nest-js-template"
-IMAGE_NAME="nest-js-template"
-DB_URL="mongodb+srv://questcards:QuestCards2025@questcards.g5afm.mongodb.net/questcards-api"
+CONTAINER_NAME="meu-carro-api"
+IMAGE_NAME="meu-carro-api"
+DB_URL="mongodb+srv://top-driver:5gLCNcaaoD4n48Zk@projetos-cin.rm3yk.mongodb.net/meu-carro-db?retryWrites=true&w=majority&appName=projetos-cin"
 
 echo "=== Parando o contêiner (se estiver em execução) ==="
 docker stop $CONTAINER_NAME || true

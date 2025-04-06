@@ -12,27 +12,27 @@ export class UserController {
 
   @Get()
   @Roles('admin')
-  async findByAll(): Promise<UserOpenDto[]> {
-    logger.log('controller - users - findByAll');
-    return await this.service.findByAll();
+  async findAll(): Promise<UserOpenDto[]> {
+    logger.info('controller - users - findAll');
+    return await this.service.findAll();
   }
 
   @Get('self')
   async self(@CurrentUser() currentUser: ICurrentUser): Promise<UserOpenDto> {
-    logger.log('controller - users - findById');
+    logger.info('controller - users - findById');
     return await this.service.findById(currentUser.id);
   }
 
   @Delete(':id')
   @Roles('admin')
   async deleteById(@Param('id') id: string): Promise<void> {
-    logger.log('controller - institutions - deleteById');
+    logger.info('controller - institutions - deleteById');
     await this.service.deleteById(id);
   }
 
   @Post()
   async create(@Body() body: CreateUserRequestDto): Promise<UserOpenDto> {
-    logger.log('controller - users - create');
+    logger.info('controller - users - create');
     return await this.service.create(body);
   }
 }

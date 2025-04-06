@@ -12,7 +12,7 @@ export const env = registerAs('env', () => ({
     jwt: {
       secret: process.env.JWT_SECRET || '',
       expiration: process.env.JWT_EXPIRATION || '1h',
-      issuer: process.env.JWT_ISSUER || 'nest-js-template',
+      issuer: process.env.JWT_ISSUER || 'meu-carro-api',
     },
     bcrypt: {
       salts: parseInt(process.env.BYCRIPT_SALT_ROUNDS || '10', 10),

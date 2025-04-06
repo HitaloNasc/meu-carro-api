@@ -11,7 +11,7 @@ export class LoginController {
     @Body() body: { email: string; password: string },
     @Res() res,
   ): Promise<void> {
-    logger.log('controller - auth - login');
+    logger.info('controller - auth - login');
     const response = await this.loginService.login(body);
     res.status(200).json(response);
   }

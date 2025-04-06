@@ -21,25 +21,25 @@ export class UserService {
     this.salts = this.configService.get('env.auth.bcrypt.salts');
   }
 
-  public async findByAll(): Promise<UserDto[]> {
-    logger.log('users - services - findByAll');
+  public async findAll(): Promise<UserDto[]> {
+    logger.info('users - services - findAll');
     const entities = await this.repository.findAll();
     return UserMapper.entityListToOpenDtoList(entities);
   }
 
   public async findById(id: string): Promise<UserDto> {
-    logger.log('users - services - findById');
+    logger.info('users - services - findById');
     const entity = await this.repository.findById(id);
     return UserMapper.entityToOpenDto(entity);
   }
 
   public async deleteById(id: string): Promise<void> {
-    logger.log('users - services - deleteById');
+    logger.info('users - services - deleteById');
     await this.repository.deleteById(id);
   }
 
   public async findByEmail(email: string): Promise<UserDto> {
-    logger.log('users - services - findByEmail');
+    logger.info('users - services - findByEmail');
     const entity = await this.repository.findByEmail(email);
     return UserMapper.entityToDto(entity);
   }
@@ -47,7 +47,7 @@ export class UserService {
   public async create(
     createUserRequestDto: CreateUserRequestDto,
   ): Promise<UserOpenDto> {
-    logger.log('module - users - service - create');
+    logger.info('module - users - service - create');
     this.validateCreateEntries(createUserRequestDto);
     await this.checkIfUserExists(createUserRequestDto);
 
@@ -63,25 +63,6 @@ export class UserService {
     );
 
     return UserMapper.entityToOpenDto(entity);
-  }
-
-  public async firstLogin(
-    userId: string,
-    institutionId: string,
-    institutionName: string,
-  ): Promise<UserOpenDto> {
-    logger.log('module - users - service - firstLogin');
-
-    const user = await this.repository.findById(userId);
-
-    if (!user) throw new BadRequestException('User not found');
-
-    user.institutionId = institutionId;
-    user.institutionName = institutionName;
-
-    const updatedUser = await this.repository.update(user);
-
-    return UserMapper.entityToOpenDto(updatedUser);
   }
 
   private validateCreateEntries({

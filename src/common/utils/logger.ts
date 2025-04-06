@@ -5,12 +5,18 @@ const COLORS = {
 };
 
 class Logger {
-  log(message: string, data?: any) {
+  info(message: string, data?: any) {
     const timestamp = new Date().toLocaleString('pt-BR');
-    console.log(
-      `[${timestamp}] ${COLORS.blue}[INFO]${COLORS.reset} ${message}`,
-      data,
-    );
+
+    if (data)
+      console.info(
+        `[${timestamp}] ${COLORS.blue}[INFO]${COLORS.reset} ${message}`,
+        data,
+      );
+    else
+      console.info(
+        `[${timestamp}] ${COLORS.blue}[INFO]${COLORS.reset} ${message}`,
+      );
   }
 
   dir(message: object) {
@@ -19,15 +25,21 @@ class Logger {
 
   initial(message: string) {
     const timestamp = new Date().toLocaleString('pt-BR');
-    console.log(`[${timestamp}] ` + COLORS.blue + message + COLORS.reset);
+    console.info(`[${timestamp}] ` + COLORS.blue + message + COLORS.reset);
   }
 
   error(message: string, data?: any) {
     const timestamp = new Date().toLocaleString('pt-BR');
-    console.log(
-      `[${timestamp}] ${COLORS.red}[ERROR]${COLORS.reset} ${message}`,
-      data,
-    );
+
+    if (data)
+      console.error(
+        `[${timestamp}] ${COLORS.red}[ERROR]${COLORS.reset} ${message}`,
+        data,
+      );
+    else
+      console.error(
+        `[${timestamp}] ${COLORS.red}[ERROR]${COLORS.reset} ${message}`,
+      );
   }
 }
 

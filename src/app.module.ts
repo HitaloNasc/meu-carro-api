@@ -8,7 +8,7 @@ import { excludedRoutes } from './config/protected-routes.config';
 import { AuthModule } from './features/auth/auth.module';
 import { RolesGuard } from './features/auth/guards/roles.guard';
 import { ImagesModule } from './features/images/images.module';
-import { InstitutionModule } from './features/institutions/institution.module';
+import { MaintenceModule } from './features/maintences/maintence.module';
 import { UserModule } from './features/users/user.module';
 import { DatabaseModule } from './infra/database/database.module';
 
@@ -19,7 +19,7 @@ import { DatabaseModule } from './infra/database/database.module';
       load: [env],
     }),
     AuthModule,
-    InstitutionModule,
+    MaintenceModule,
     UserModule,
     DatabaseModule,
     ImagesModule,
