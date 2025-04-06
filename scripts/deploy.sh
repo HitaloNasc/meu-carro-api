@@ -20,7 +20,7 @@ echo "=== Iniciando o contêiner ==="
 docker run -d \
     -e DATABASE_URL="$DB_URL" \
     --name $CONTAINER_NAME \
-    -p 3000:3000 \
+    -p 4011:4011 \
     $IMAGE_NAME
 
 echo "=== Deploy finalizado. Execute 'docker logs -f $CONTAINER_NAME' para acompanhar os logs ==="
