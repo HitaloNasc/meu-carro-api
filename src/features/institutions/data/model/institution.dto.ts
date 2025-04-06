@@ -1,4 +1,11 @@
-import { IsString, IsEmail, IsOptional, IsDate, IsUUID, IsNotEmpty } from 'class-validator';
+import {
+  IsString,
+  IsEmail,
+  IsOptional,
+  IsDate,
+  IsUUID,
+  IsNotEmpty,
+} from 'class-validator';
 import { Transform } from 'class-transformer';
 
 export class InstitutionDto {

@@ -4,9 +4,12 @@ import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class JwtTokenService {
-  constructor(private readonly configService: ConfigService) { }
+  constructor(private readonly configService: ConfigService) {}
 
-  public generateToken(payload: Record<string, any>, customOptions?: SignOptions): string {
+  public generateToken(
+    payload: Record<string, any>,
+    customOptions?: SignOptions,
+  ): string {
     const options = this.mergeOptions(customOptions);
     return sign(payload, this.getJwtSecret(), options);
   }
@@ -25,8 +28,14 @@ export class JwtTokenService {
   }
 
   private getJwtSecret(): string {
-    return this.configService.get<string>('env.auth.jwt.secret')
-      || (() => { throw new Error('JWT secret is not defined in the environment variables'); })();
+    return (
+      this.configService.get<string>('env.auth.jwt.secret') ||
+      (() => {
+        throw new Error(
+          'JWT secret is not defined in the environment variables',
+        );
+      })()
+    );
   }
 
   private mergeOptions(customOptions?: SignOptions): SignOptions {

@@ -16,4 +16,5 @@ export class InstitutionEntity extends Document {
   updatedAt?: Date;
 }
 
-export const InstitutionSchema = SchemaFactory.createForClass(InstitutionEntity);
+export const InstitutionSchema =
+  SchemaFactory.createForClass(InstitutionEntity);

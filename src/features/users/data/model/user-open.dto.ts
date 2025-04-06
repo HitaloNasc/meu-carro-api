@@ -35,12 +35,6 @@ export class UserOpenDto {
   provider?: UserProviderEnum;
 
   @IsOptional()
-  institutionId?: string;
-
-  @IsOptional()
-  institutionName?: string;
-
-  @IsOptional()
   @IsDate()
   @Transform(({ value }) => value && new Date(value))
   createdAt?: Date;

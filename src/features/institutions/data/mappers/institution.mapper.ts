@@ -1,5 +1,5 @@
-import { InstitutionEntity } from "../entities/institution.entity";
-import { InstitutionDto } from "../model/institution.dto";
+import { InstitutionEntity } from '../entities/institution.entity';
+import { InstitutionDto } from '../model/institution.dto';
 
 export class InstitutionsMapper {
   public static entityToDto(entity: InstitutionEntity): InstitutionDto | null {
@@ -15,9 +15,10 @@ export class InstitutionsMapper {
     return dto;
   }
 
-  public static entityListToDtoList(entities: InstitutionEntity[]): InstitutionDto[] {
+  public static entityListToDtoList(
+    entities: InstitutionEntity[],
+  ): InstitutionDto[] {
     if (!entities) return [];
-    return entities.map(entity => this.entityToDto(entity));
+    return entities.map((entity) => this.entityToDto(entity));
   }
-
 }

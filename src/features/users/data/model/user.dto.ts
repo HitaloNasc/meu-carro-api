@@ -43,12 +43,6 @@ export class UserDto {
   userProviderId?: string;
 
   @IsOptional()
-  institutionId?: string;
-
-  @IsOptional()
-  institutionName?: string;
-
-  @IsOptional()
   @IsDate()
   @Transform(({ value }) => value && new Date(value))
   createdAt?: Date;

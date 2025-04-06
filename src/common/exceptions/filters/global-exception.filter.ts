@@ -1,4 +1,10 @@
-import { Catch, ExceptionFilter, ArgumentsHost, HttpException, HttpStatus } from '@nestjs/common';
+import {
+  Catch,
+  ExceptionFilter,
+  ArgumentsHost,
+  HttpException,
+  HttpStatus,
+} from '@nestjs/common';
 import { Request, Response } from 'express';
 import { logger } from 'src/common/utils/logger';
 
@@ -8,7 +14,9 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     const { request, response } = this.getRequestAndResponse(host);
     const errorDetails = this.buildErrorDetails(exception, request);
 
-    logger.error('Global Exception Handler:' + JSON.stringify(errorDetails, null, 2));
+    logger.error(
+      'Global Exception Handler:' + JSON.stringify(errorDetails, null, 2),
+    );
     logger.error(exception.stack);
 
     this.sendErrorResponse(response, errorDetails);
@@ -26,9 +34,13 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     const isHttpException = exception instanceof HttpException;
 
     return {
-      message: exception.response ? exception.response.message : exception.message,
+      message: exception.response
+        ? exception.response.message
+        : exception.message,
       error: exception.response ? exception.response.error : exception.error,
-      status: isHttpException ? exception.getStatus() : HttpStatus.INTERNAL_SERVER_ERROR,
+      status: isHttpException
+        ? exception.getStatus()
+        : HttpStatus.INTERNAL_SERVER_ERROR,
       path: request.url ?? request.baseUrl,
       method: request.method,
       headers: request.headers,

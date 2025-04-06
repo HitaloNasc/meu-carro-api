@@ -25,12 +25,6 @@ export class UserEntity extends Document {
   @Prop({ default: null })
   userProviderId?: string;
 
-  @Prop({ default: null })
-  institutionId?: string;
-
-  @Prop({ default: null })
-  institutionName?: string;
-
   @Prop({ default: Date.now })
   createdAt?: Date;
 

@@ -4,10 +4,13 @@ import { LoginService } from '../services/login.service';
 
 @Controller('auth')
 export class LoginController {
-  constructor(private readonly loginService: LoginService) { }
+  constructor(private readonly loginService: LoginService) {}
 
   @Post('login')
-  async login(@Body() body: { email: string; password: string }, @Res() res): Promise<void> {
+  async login(
+    @Body() body: { email: string; password: string },
+    @Res() res,
+  ): Promise<void> {
     logger.log('controller - auth - login');
     const response = await this.loginService.login(body);
     res.status(200).json(response);

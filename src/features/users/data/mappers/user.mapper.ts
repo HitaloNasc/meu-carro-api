@@ -16,8 +16,6 @@ export class UserMapper {
     dto.role = entity.role;
     dto.provider = entity.provider;
     dto.userProviderId = entity.userProviderId;
-    dto.institutionId = entity.institutionId;
-    dto.institutionName = entity.institutionName;
     dto.createdAt = entity.createdAt;
     dto.updatedAt = entity.updatedAt;
 
@@ -40,8 +38,6 @@ export class UserMapper {
     dto.role = entity.role;
     dto.provider = entity.provider;
     dto.userProviderId = entity.userProviderId;
-    dto.institutionId = entity.institutionId;
-    dto.institutionName = entity.institutionName;
     dto.createdAt = entity.createdAt;
     dto.updatedAt = entity.updatedAt;
 

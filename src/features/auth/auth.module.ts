@@ -12,7 +12,13 @@ import { UserModule } from '../users/user.module';
 @Module({
   imports: [UserModule, ConfigModule],
   controllers: [LoginController, TestController],
-  providers: [LoginService, JwtTokenService, UserService, GoogleStrategy, GoogleAuthGuard],
+  providers: [
+    LoginService,
+    JwtTokenService,
+    UserService,
+    GoogleStrategy,
+    GoogleAuthGuard,
+  ],
   exports: [JwtTokenService],
 })
-export class AuthModule { }
+export class AuthModule {}
