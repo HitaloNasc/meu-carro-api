@@ -6,6 +6,9 @@ export class UpdateMaintenceRequestDto {
   name?: string;
 
   @IsOptional()
+  clientId?: string;
+
+  @IsOptional()
   description?: string;
 
   @IsOptional()
@@ -18,4 +21,7 @@ export class UpdateMaintenceRequestDto {
   @IsOptional()
   @Transform(({ value }) => value && new Date(value))
   nextDueAt?: Date;
+
+  @IsOptional()
+  deleted?: boolean;
 }

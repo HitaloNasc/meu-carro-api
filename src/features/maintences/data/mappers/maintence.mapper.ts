@@ -8,11 +8,13 @@ export class MaintenceMapper {
     const dto = new MaintenceDto();
     dto.id = entity.id;
     dto.userId = entity.userId;
+    dto.clientId = entity.clientId;
     dto.name = entity.name;
     dto.description = entity.description;
     dto.odometer = entity.odometer;
     dto.performedAt = entity.performedAt;
     dto.nextDueAt = entity.nextDueAt;
+    dto.deleted = entity.deleted;
     dto.createdAt = entity.createdAt;
     dto.updatedAt = entity.updatedAt;
 

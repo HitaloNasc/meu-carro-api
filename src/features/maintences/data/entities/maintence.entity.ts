@@ -7,6 +7,9 @@ export class MaintenceEntity extends Document {
   userId: string;
 
   @Prop({ required: true, unique: true })
+  clientId: string;
+
+  @Prop({ required: true, unique: true })
   name: string;
 
   @Prop({ default: null })
@@ -20,6 +23,9 @@ export class MaintenceEntity extends Document {
 
   @Prop({ required: true, default: null })
   nextDueAt: Date;
+
+  @Prop({ default: false })
+  deleted?: boolean;
 
   @Prop({ default: Date.now })
   createdAt?: Date;

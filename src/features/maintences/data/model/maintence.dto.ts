@@ -1,5 +1,6 @@
 import { Transform } from 'class-transformer';
 import {
+  IsBoolean,
   IsDate,
   IsEmail,
   IsNotEmpty,
@@ -17,6 +18,10 @@ export class MaintenceDto {
   @IsString()
   @IsNotEmpty()
   userId: string;
+
+  @IsString()
+  @IsNotEmpty()
+  clientId: string;
 
   @IsEmail()
   @IsNotEmpty()
@@ -37,6 +42,9 @@ export class MaintenceDto {
   @IsDate()
   @Transform(({ value }) => value && new Date(value))
   nextDueAt: Date;
+
+  @IsBoolean()
+  deleted?: boolean;
 
   @IsOptional()
   @IsDate()
