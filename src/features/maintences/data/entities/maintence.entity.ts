@@ -9,7 +9,7 @@ export class MaintenceEntity extends Document {
   @Prop({ required: true, unique: true })
   clientId: string;
 
-  @Prop({ required: true, unique: true })
+  @Prop({ required: true })
   name: string;
 
   @Prop({ default: null })
